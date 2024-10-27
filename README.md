@@ -2,7 +2,7 @@ Project Name: Pet Adoption Platform
 
 Description: A modern web application for discovering and adopting pets, built with clean and responsive UI. Users can browse various pets based on category, view details, and even start the adoption process.
 
-Live Demo:  https://assignment-6-rifhat.netlify.app/
+Live Demo:  https://peddy-a-pet-shop.netlify.app/
 
 
 Key Features
