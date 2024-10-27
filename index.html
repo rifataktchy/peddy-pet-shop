@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+     .active{
+        background-color: #0E7A81;
+        color: aliceblue;
+     }
+        /* Spinner styles */
+      #spinner {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      /* Spinner animation */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#0E7A81',
+                secondary: '#FFFFFF',
+              
+              },
+              fontFamily: {
+                Lato: ['Lato', 'sans-serif'],
+                Inter: ['Inter', 'sans-serif'],
+              },
+            },
+          },
+        }
+      </script>
+</head>
+<body class="font-Lato">
+   <header class="lg:w-11/12 md:w-11/12 mx-auto lg:m-auto">
+    <div class="navbar pt-6 bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden md:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <div class="hidden lg:flex md:flex gap-1">
+            <img src="images/logo.webp">
+            <h1 class="font-bold text-2xl">Peddy</h1>
+          </div>
+        </div>
+        <div class="navbar-center hidden lg:flex md:flex">
+          <ul class="flex gap-5">
+            <li>Home</li>
+            <li>Shop</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <img width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/50/guest-male.png" alt="guest-male"/>
+        </div>
+    </div>
+   </header>
+   <section class="flex flex-col items-center justify-center lg:w-6/12 md:w-11/12 mx-auto text-center pt-10 px-2 gap-2">
+        <h1 class="text-1xl"> Bringing Families Together ❤️‍🔥</h1>
+        <span class="text-5xl font-bold">Your Path to Adoption Starts Here</span>
+        <p class="text-base">It’s a great place to easily find and discover your perfect pet, offering a variety of options to suit your preferences.</p>
+        <button class="bg-primary p-3 rounded-lg text-secondary"><a href="#adopt-section" >View More</a></button>
+        <img src="images/pet.webp">
+   </section>
+   <main id="adopt-section" class="lg:w-11/12 md:w-11/12 mx-auto pt-10 mt-10 pb-10">
+      <div class="w-11/12 flex flex-col items-center justify-center text-center lg:w-6/12 md:w-11/12 mx-auto pt-10 px-2 gap-2">
+        <h1 class="text-3xl font-bold">Adopt Your Best Friend </h1>
+        <p class="text-base">It is a wonderful and convenient place where you can easily find and discover your perfect desired pet for finding a loyal companion.</p>
+      </div>
+      <div id="categories" class="w-11/12 mx-auto flex justify-between py-4 gap-10 flex-col lg:flex-row md:flex-row md:gap-0">
+      </div>
+      <div class="flex flex-row justify-between w-11/12 mx-auto py-2">
+       <div><h1 class="font-bold text-xl">Best deal for you</h1></div>
+       <button id="sort-price-btn" class="bg-primary p-3 rounded-lg text-secondary">Sort by price</button>
+      </div>
+      <section class="md:w-11/12 md:mx-auto flex flex-col md:flex-row lg:flex-row">
+        <div id="pets" class="lg:w-[70%] md:w-[80%] mx-auto lg:mx-0 md:mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
+         <span id="spinner"></span>
+        </div>
+        <div id="image-seen-container" class="w-8/12 gap-2 lg:gap-3 lg:w-[30%] md:w-[20%] md:px-2 mx-auto h-full py-6 grid grid-cols-2 lg:grid-cols-2 grid-rows-3 md:grid-cols-1 md:pl-10">
+           
+        </div>
+      </section>
+   </main>
+   <!-- modal section -->
+   <div id="modal-container-first">
+    
+   </div>
+   <div id="modal-container-second">
+    
+   </div>
+
+   <footer class="bg-black text-secondary pt-20 pb-20">
+     <div class="w-11/12 m-auto flex flex-col lg:flex-row md:flex-row">
+        <div class="flex flex-col gap-2 lg:w-4/12 md:w-4/12 md:w-4/12 lg:pl-6 lg:pr-10 pt-6 lg:pt-0">
+            <div class="flex gap-2"><img src="images/logo.webp">
+                <h1 class="font-bold text-2xl">Peddy</h1></div>
+            <h1>Location: av. Washington 165, NY CA <br> 54003</h1>
+            <span>Phone: +31 85 964 47 25</span>
+            <p>Email: info@yourdomain.com</p>
+            <h2>Openings hours: 9.00 AM - 5.00 PM</h2>
+        </div>
+         <div class="lg:w-4/12 md:w-4/12 flex flex-col sm:pt-10 lg:pl-10 md:pl-10 lg:ml-10 mt-10 lg:pt-0">
+            <h1 class="font-bold pb-4">Useful Links</h1>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Animals</li>
+                <li>Foundation</li>
+                <li>Contact</li>
+            </ul>
+         </div>
+         <div class="lg:w-4/12 md:w-4/12 flex flex-col pt-10 mt-10 lg:pl-6 gap-4 lg:pt-0">
+            <h1>Drop a Message</h1>
+            <input type="email" name="email" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-lg text-black">
+            <button class="bg-primary p-2 rounded-lg text-secondary">Subscsribe</button>
+         </div>
+     </div>
+   </footer>
+
+   <script src="./js/index.js"></script>
+</body>
+</html>
